@@ -1,0 +1,23 @@
+{
+  "disclaimer": "ALL DATA SYNTHETIC. Fictional Tokyo-like coordinate reference; no real drivers or journeys.",
+  "generation_seed": 20261118,
+  "clean_pings": 2520,
+  "total_pings": 2616,
+  "injected_duplicate_rows": 66,
+  "injected_offroad_rows": 18,
+  "injected_speed_spike_rows": 12,
+  "expected_km": {
+    "SYNTH-A": {
+      "2026-11-16": 15.313,
+      "2026-11-17": 15.539
+    },
+    "SYNTH-B": {
+      "2026-11-16": 15.467,
+      "2026-11-17": 15.693
+    },
+    "SYNTH-C": {
+      "2026-11-16": 15.621,
+      "2026-11-17": 15.847
+    }
+  }
+}

@@ -1,0 +1,45 @@
+Generated 2616 labelled synthetic rows; 66 duplicates; 30 noise rows
+
+1) PROVE regression check FAILS on OLD behaviour:
+
+=== OLD ENGINE — ALL DATA SYNTHETIC ===
+input=2616 accepted=2586 duplicates_removed=0 noise_removed=30
+noise_types={'off_road_gt_100m': 18, 'speed_gt_150kmh': 12}
+driver       local_day    actual_km    oracle_km    error_km   status
+SYNTH-A      2026-11-16   15.705400   15.313000   +0.392400  FAIL
+SYNTH-A      2026-11-17   15.931400   15.539000   +0.392400  FAIL
+SYNTH-B      2026-11-16   15.859400   15.467000   +0.392400  FAIL
+SYNTH-B      2026-11-17   16.085400   15.693000   +0.392400  FAIL
+SYNTH-C      2026-11-16   15.987400   15.621000   +0.366400  FAIL
+SYNTH-C      2026-11-17   16.239400   15.847000   +0.392400  FAIL
+verdict=FAIL
+
+2) PROVE regression check PASSES on FIXED behaviour:
+
+=== FIXED ENGINE — ALL DATA SYNTHETIC ===
+input=2616 accepted=2520 duplicates_removed=66 noise_removed=30
+noise_types={'off_road_gt_100m': 18, 'speed_gt_150kmh': 12}
+driver       local_day    actual_km    oracle_km    error_km   status
+SYNTH-A      2026-11-16   15.313000   15.313000   +0.000000  PASS
+SYNTH-A      2026-11-17   15.539000   15.539000   -0.000000  PASS
+SYNTH-B      2026-11-16   15.467000   15.467000   +0.000000  PASS
+SYNTH-B      2026-11-17   15.693000   15.693000   +0.000000  PASS
+SYNTH-C      2026-11-16   15.621000   15.621000   -0.000000  PASS
+SYNTH-C      2026-11-17   15.847000   15.847000   -0.000000  PASS
+verdict=PASS
+
+Duplicate examples (full 66-row audit: data/duplicate_audit.csv):
+  P00039 -> P00038 / 2026-11-16T03:06:10Z / same driver+timestamp, later arrival
+  P00077 -> P00076 / 2026-11-16T03:12:20Z / same driver+timestamp, later arrival
+  P00116 -> P00115 / 2026-11-16T03:18:30Z / same driver+timestamp, later arrival
+  P00155 -> P00154 / 2026-11-16T03:24:40Z / same driver+timestamp, later arrival
+  P00193 -> P00192 / 2026-11-16T03:30:50Z / same driver+timestamp, later arrival
+  P00232 -> P00231 / 2026-11-16T03:37:00Z / same driver+timestamp, later arrival
+  P00270 -> P00269 / 2026-11-16T03:43:10Z / same driver+timestamp, later arrival
+  P00309 -> P00308 / 2026-11-16T03:49:20Z / same driver+timestamp, later arrival
+
+3) Run deterministic automated tests:
+....                                                                     [100%]
+4 passed in 0.47s
+
+SUCCESS: old failed as expected; fixed passed; tests passed.
