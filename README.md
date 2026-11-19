@@ -33,7 +33,6 @@ python -m pytest -q tests
 - `data/duplicate_audit.csv`: which duplicate row was discarded, its retained peer and why
 - `tests/test_regression.py`: acceptance and boundary tests
 - `run.py`: one-command demonstration wrapper
-- `loom_script.md`: under-5-minute recording outline (recording not included)
 
 ## Design limits
 
